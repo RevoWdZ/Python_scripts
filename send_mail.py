@@ -25,17 +25,17 @@ def read_template(file_name):
 
 def main():
     start = time.time()
-    # store here user name and email address of recipient
+    # store here user name and email address of recipient eg. XYZ xyz@test.com
     user_name, user_mail = get_users_data('users.txt')
     # message stored as a file
     message_template = read_template('template.txt')
 
     # Set up the SMTP server
-    smtplib_server = smtplib.SMTP(
-        host='ur-server-host eg. smtp.gmail.com', port=25)
+    smtplib_server = smtplib.SMTP(host='ur-server-host eg. smtp.gmail.com', port=25)
     # smtplib_server.set_debuglevel(True)
     # smtplib_server.starttls()
     smtplib_server.login(SEND_FROM, EMAIL_PWD)
+
     for name, email in zip(user_name, user_mail):
 
         msg = message_template.substitute(PERSON_NAME=name.title())
