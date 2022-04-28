@@ -27,8 +27,8 @@ def main():
     start = time.time()
     # store here user name and email address of recipient
     user_name, user_mail = get_users_data('users.txt')
-    message_template = read_template(
-        'template.txt')  # message stored as a file
+    # message stored as a file
+    message_template = read_template('template.txt')
 
     # Set up the SMTP server
     smtplib_server = smtplib.SMTP(
